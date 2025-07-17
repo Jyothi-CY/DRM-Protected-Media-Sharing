@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>My Media</title></head>
+<body>
+    <h2>Your Media Files</h2>
+    <table border="1">
+        <tr>
+            <th>Filename</th>
+            <th>Expires At</th>
+            <th>Views Left</th>
+            <th>Action</th>
+        </tr>
+        {% for m in media %}
+        <tr>
+            <td>{{ m[1] }}</td>
+            <td>{{ m[2] }}</td>
+            <td>{{ m[3] }}</td>
+            <td><a href="/media/{{ m[0] }}/view">View</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>

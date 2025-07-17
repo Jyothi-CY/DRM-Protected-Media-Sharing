@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome</h2>
+        <a href="/upload">Upload New Media</a> | 
+        <a href="/logout">Logout</a>
+        <br><br>
+        <h3>Your Accessible Media:</h3>
+        {% if files %}
+            <table border="1" cellpadding="6">
+                <tr>
+                    <th>Filename</th>
+                    <th>Expires At</th>
+                    <th>Views Left</th>
+                    <th>Action</th>
+                </tr>
+                {% for file in files %}
+                <tr>
+                    <td>{{ file[1] }}</td>
+                    <td>{{ file[2] }}</td>
+                    <td>{{ file[3] }}</td>
+                    <td><a href="/media/{{ file[0] }}">View</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No media available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+

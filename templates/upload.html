@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Media</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Media</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required><br>
+            <label>License Expiry Date:</label>
+            <input type="date" name="expires_at" required><br>
+            <label>Allowed Views:</label>
+            <input type="number" name="views" min="1" required><br>
+            <button type="submit">Upload</button>
+        </form>
+        <a href="/">Back to Dashboard</a>
+    </div>
+</body>
+</html>
+
